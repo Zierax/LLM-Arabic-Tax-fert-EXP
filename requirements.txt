@@ -1,0 +1,10 @@
+# Python 3.10+ (tested on 3.12)
+# Tokenizers and corpus building only; no torch/vLLM needed for the CPU arms.
+datasets>=3.2,<5
+transformers>=4.51,<5
+sentencepiece>=0.2,<0.3
+tiktoken>=0.8,<1
+PyYAML>=6.0,<7
+requests>=2.32,<3
+tqdm>=4.66,<5
+huggingface_hub>=0.30,<1

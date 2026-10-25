@@ -1,0 +1,324 @@
+# ============================================================================
+# Arabic Fertility Tax — Experiment 1
+# ----------------------------------------------------------------------------
+# One config, three arms:
+#   1) intrinsic tokenizer benchmark (CPU, deterministic)
+#   2) provider/API cost audit (billed input tokens + price snapshot)
+#   3) TTFT streaming benchmark (same content, several prompt lengths)
+#
+# Paths are relative to this file's directory unless absolute.
+# Every number that can drift (model revision, dataset revision, price) is
+# recorded here so a run can be reproduced later.
+# ============================================================================
+
+project:
+  name: arabic-fertility-tax
+  seed: 20261025
+  corpus_path: data/corpus.jsonl
+  smoke_path: data/smoke.jsonl
+  results_dir: results
+  cache_dir: results/cache
+
+corpus:
+  # Exact whitespace-word budget. The builder fails if it cannot hit it.
+  total_words: 50000
+  streaming: true
+  shuffle_buffer: 10000
+  max_scan_rows: 2000000
+  min_arabic_ratio: 0.60
+  normalize_whitespace: true
+
+  # The four strata are deliberately unequal: MSA is the bulk, dialects and
+  # diacritized text are large enough for a stable per-stratum estimate.
+  strata:
+    - name: msa
+      words: 27500
+      source: wikimedia/wikipedia
+      config: 20231101.ar
+      split: train
+      revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa  # pinned from the first successful build (2026-10-25)
+      text_field: text
+      license: CC-BY-SA-4.0
+      min_words: 60
+      max_words: 300
+      min_unique_words: 30
+      max_diacritic_ratio: 0.02 # Wikipedia should be essentially undiacritized
+
+    - name: egyptian
+      words: 10000
+      source: dataflare/arabic-dialect-corpus
+      config: default
+      split: train
+      revision: 5e5bfb845bd8abefcee684bb97b05fea0f6231d9
+      text_field: text
+      dialect_field: dialect
+      dialect_regex: "(?i)(masri|egypt)"
+      license: MIT
+      min_words: 8
+      max_words: 120
+      min_unique_words: 5
+
+    - name: gulf
+      words: 5000
+      source: dataflare/arabic-dialect-corpus
+      config: default
+      split: train
+      revision: 5e5bfb845bd8abefcee684bb97b05fea0f6231d9
+      text_field: text
+      dialect_field: dialect
+      dialect_regex: "(?i)(khaleeji|gulf|saudi|emirati|qatari|kuwaiti|bahraini|omani)"
+      license: MIT
+      min_words: 8
+      max_words: 120
+      min_unique_words: 5
+
+    - name: diacritized
+      words: 7500
+      source: arbml/tashkeela
+      config: default
+      split: train
+      revision: 96cc2daa40aa7357476ebcaf62392913d75e5a21
+      text_field: diacratized   # yes, the field is misspelled in the dataset
+      license: GPL-2.0 (data; do not redistribute the built corpus)
+      min_words: 30
+      max_words: 300
+      min_unique_words: 15
+      min_diacritic_ratio: 0.15
+
+# ----------------------------------------------------------------------------
+# Tokenizers
+# ----------------------------------------------------------------------------
+# kind:
+#   hf              -> transformers.AutoTokenizer (tokenizer as shipped)
+#   sentencepiece   -> sentencepiece.SentencePieceProcessor (+ optional native norm)
+#   tiktoken        -> tiktoken encoding
+#   gemini_count    -> Gemini countTokens API (tokenizer is not public)
+#
+# class is a label used in reports, not a claim that the tokenizer is
+# "better" or "worse". See docs/METHODOLOGY.md for the exact definitions.
+tokenizers:
+  o200k:
+    kind: tiktoken
+    class: english-centric-proxy
+    encoding: o200k_base
+    context_window: 128000
+    note: >-
+      Reproducible proxy for GPT-4o-class English-centric tokenizers.
+      It is NOT the Llama 4 tokenizer and must never be labelled as such.
+
+  llama4:
+    kind: hf
+    class: english-centric
+    repo: meta-llama/Llama-4-Scout-17B-16E-Instruct
+    revision: 92f3b1597a195b523d8d9e5700e57e4fbb8f20d3
+    context_window: 10000000
+    optional: true
+    note: >-
+      Gated. Requires an HF account with access. If unavailable, leave it
+      missing; do not silently substitute o200k.
+
+  qwen3:
+    kind: hf
+    class: massive-multilingual
+    repo: Qwen/Qwen3-8B
+    revision: b968826d9c46dd6066d109eabc6255188de91218
+    context_window: 32768
+
+  gemini:
+    kind: gemini_count
+    class: massive-multilingual-api
+    model: gemini-2.5-flash
+    api_key_env: GEMINI_API_KEY
+    context_window: 1000000
+    optional: true
+    note: >-
+      The Gemini tokenizer is not public. Counts come from the provider's
+      countTokens endpoint; they may include provider-side framing tokens.
+
+  aratoken:
+    kind: sentencepiece
+    class: arabic-specialized
+    repo: mariklolik/AraToken
+    revision: 6feb597abc5cb579077e57faebde1cf45813c771
+    filename: sentencepiece/fw2hq_sp_drop_norm/sentencepiece.model
+    published_normalization: aratoken
+    context_window: 131072
+    note: >-
+      The tokenizer used for the paper's 1.199 fertility / 5.03 chars-per-token
+      result: SentencePiece Unigram + AraToken normalization, 150K vocab. The
+      normalization pipeline is applied by the `aratoken_norm` view so that
+      every tokenizer sees the same pre-tokenization text; `raw` does not
+      apply it externally.
+
+  aratoken_lep:
+    kind: hf
+    class: arabic-specialized-extended
+    repo: mariklolik/AraToken-Qwen3-0.6B-LEP
+    revision: 6ad58e619a2934b128db32908c939895f1083add
+    context_window: 32768
+    optional: true
+    note: >-
+      The deployed 0.6B model's extended tokenizer (282,826 vocab). Useful for
+      the local paired TTFT arm. It is not the same vocabulary as `aratoken`.
+
+  arabert:
+    kind: hf
+    class: arabic-bert-baseline
+    repo: aubmindlab/bert-base-arabertv02
+    revision: 016fb9d6768f522a59c6e0d2d5d5d43a4e1bff60
+    context_window: 512
+
+  camelbert:
+    kind: hf
+    class: arabic-dialect-bert-baseline
+    repo: CAMeL-Lab/bert-base-arabic-camelbert-mix
+    revision: 9be352797bdf28a9ae21e2ae582aaaca7abdb22d
+    context_window: 512
+
+# ----------------------------------------------------------------------------
+# Analysis
+# ----------------------------------------------------------------------------
+analysis:
+  reference_tokenizer: aratoken
+  primary_tokenizers: [o200k, llama4, qwen3, gemini, aratoken]
+  secondary_tokenizers: [aratoken_lep, arabert, camelbert]
+  tokenizers: [o200k, llama4, qwen3, gemini, aratoken, aratoken_lep, arabert, camelbert]
+  views: [raw, nfkc, aratoken_norm]
+  headline_view: raw
+  bootstrap:
+    n_boot: 2000
+    ci: 0.95
+  # Concurrent requests for provider-reported token counts (Gemini).
+  # Lower this if you hit 429s; it does not affect local tokenizers.
+  api_workers: 4
+  # This is a deliberately artificial equal-price anchor for the dollar
+  # illustration. It is not a market price and is not used for the primary
+  # token-inflation result.
+  illustrative_price_usd_per_1m: 0.50
+
+# Fill these from the provider's pricing page on the day of the run.
+# Values are USD per 1M *input* text tokens, standard tier, excluding output,
+# cached-input discounts, batch discounts and taxes. `null` means "not filled".
+pricing:
+  gemini:
+    input_usd_per_1m: null
+    as_of: null
+    source: https://ai.google.dev/gemini-api/docs/pricing
+  llama4:
+    input_usd_per_1m: null
+    as_of: null
+    source: set the host you actually use (Together / Fireworks / OpenRouter)
+  qwen3:
+    input_usd_per_1m: null
+    as_of: null
+    source: set the host you actually use (Alibaba / Together / self-hosted)
+  o200k:
+    input_usd_per_1m: null
+    as_of: null
+    source: proxy tokenizer; no standalone API price
+  aratoken:
+    input_usd_per_1m: null
+    as_of: null
+    source: local tokenizer; use GPU-hour amortization, not a per-token price
+  aratoken_lep:
+    input_usd_per_1m: null
+    as_of: null
+    source: local model; use GPU-hour amortization
+  arabert:
+    input_usd_per_1m: null
+    as_of: null
+    source: local encoder; no per-token API price
+  camelbert:
+    input_usd_per_1m: null
+    as_of: null
+    source: local encoder; no per-token API price
+
+# ----------------------------------------------------------------------------
+# TTFT arm
+# ----------------------------------------------------------------------------
+# Protocol: streaming chat, one visible output token, warmup excluded,
+# prompt windows drawn from the MSA stratum, 5 repetitions per length,
+# sequential requests (no competing traffic), provider-reported input tokens.
+ttft:
+  stratum: msa
+  lengths_words: [200, 800, 3200]
+  reps: 5
+  warmup: 1
+  max_output_tokens: 1
+  max_consecutive_errors: 3
+  system_prompt: "Reply with the single word OK."
+  input_token_estimator: qwen3
+  providers:
+    - name: gemini-2.5-flash
+      kind: gemini
+      model: gemini-2.5-flash
+      api_key_env: GEMINI_API_KEY
+      enabled: false        # opt in after exporting GEMINI_API_KEY
+      thinking_budget: 0
+      max_retries: 5
+      timeout_s: 120
+      region: global
+      notes: >-
+        TTFT includes network RTT and provider queueing. Thinking is disabled
+        when the model supports it; the run records the exact model version.
+
+    - name: gpt-4.1-mini
+      kind: openai
+      model: gpt-4.1-mini
+      base_url: https://api.openai.com/v1
+      api_key_env: OPENAI_API_KEY
+      enabled: false
+      max_retries: 5
+      timeout_s: 120
+      extra_body: {}
+      notes: >-
+        Optional English-centric API reference. Its tokenizer is close to
+        o200k, so it pairs naturally with the o200k proxy arm.
+
+    - name: qwen3-0.6b-base-vllm
+      kind: openai
+      model: Qwen/Qwen3-0.6B-Base
+      base_url: http://127.0.0.1:8000/v1
+      api_key_env: VLLM_API_KEY
+      api_key_default: dummy
+      enabled: false
+      max_retries: 3
+      timeout_s: 120
+      extra_body:
+        chat_template_kwargs:
+          enable_thinking: false
+      notes: >-
+        Start vLLM with --no-enable-prefix-caching. This is the base side of
+        the optional local paired TTFT arm. Both sides use a Qwen3 base model
+        (Qwen3-0.6B-Base vs AraToken-Qwen3-0.6B-LEP) so the instruct/base
+        distinction is not a confound. The LEP side still trains layers 24-27,
+        so this is not a pure tokenizer ablation.
+
+    - name: aratoken-qwen3-0.6b-lep-vllm
+      kind: openai
+      model: mariklolik/AraToken-Qwen3-0.6B-LEP
+      base_url: http://127.0.0.1:8001/v1
+      api_key_env: VLLM_API_KEY
+      api_key_default: dummy
+      enabled: false
+      max_retries: 3
+      timeout_s: 120
+      extra_body:
+        chat_template_kwargs:
+          enable_thinking: false
+      notes: >-
+        Same base model family, Arabic-extended tokenizer + LEP adaptation.
+        This is not a pure tokenizer ablation: layers 24-27 were also trained.
+
+    - name: llama4-scout-openrouter
+      kind: openai
+      model: meta-llama/llama-4-scout
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      enabled: false
+      max_retries: 3
+      timeout_s: 180
+      extra_body: {}
+      notes: >-
+        Verify the current OpenRouter model slug and price before enabling.
+        Upstream access to Llama 4 is gated.

@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets
+.env
+.env.*
+*.key
+secrets.yaml
+
+# Build and execution logs
+*.log
+results/*.log
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+notes.txt

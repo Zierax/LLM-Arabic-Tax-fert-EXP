@@ -1,0 +1,155 @@
+{
+  "project": "arabic-fertility-tax",
+  "created_at": "2026-10-25T11:05:58+00:00",
+  "config_path": "D:\\Axioms\\LLM Arabic Tax fert EXP\\config.yaml",
+  "config_sha256": "96c7e4e3d4c65ecad26c96bf232d655edc77ea46a4b0c7c3e7a7dfaf55705a9e",
+  "seed": 20261025,
+  "total_words": 50000,
+  "total_docs": 1499,
+  "file": "D:\\Axioms\\LLM Arabic Tax fert EXP\\data\\corpus.jsonl",
+  "file_sha256": "fbc6e3972e95037f6e318eb402fb18d4de0ede428d888b16f71a372218c3c72a",
+  "strata": [
+    {
+      "name": "msa",
+      "words": 27500,
+      "docs": 170,
+      "source": "wikimedia/wikipedia",
+      "config": "20231101.ar",
+      "split": "train",
+      "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+      "revision_requested": null,
+      "license": "CC-BY-SA-4.0",
+      "scanned": 319,
+      "skipped_short": 139,
+      "skipped_duplicate": 0,
+      "skipped_low_arabic": 5,
+      "skipped_diacritics": 5,
+      "skipped_low_unique": 0,
+      "chars": 164284,
+      "arabic_letter_ratio": 0.9105884593410779,
+      "diacritic_ratio": 0.0034427561354258
+    },
+    {
+      "name": "egyptian",
+      "words": 10000,
+      "docs": 806,
+      "source": "dataflare/arabic-dialect-corpus",
+      "config": "default",
+      "split": "train",
+      "revision": "5e5bfb845bd8abefcee684bb97b05fea0f6231d9",
+      "revision_requested": "5e5bfb845bd8abefcee684bb97b05fea0f6231d9",
+      "license": "MIT",
+      "scanned": 909,
+      "skipped_short": 103,
+      "skipped_duplicate": 0,
+      "skipped_low_arabic": 0,
+      "skipped_diacritics": 0,
+      "skipped_low_unique": 0,
+      "chars": 53256,
+      "arabic_letter_ratio": 0.9846052091410847,
+      "diacritic_ratio": 0.005003358736188645
+    },
+    {
+      "name": "gulf",
+      "words": 5000,
+      "docs": 394,
+      "source": "dataflare/arabic-dialect-corpus",
+      "config": "default",
+      "split": "train",
+      "revision": "5e5bfb845bd8abefcee684bb97b05fea0f6231d9",
+      "revision_requested": "5e5bfb845bd8abefcee684bb97b05fea0f6231d9",
+      "license": "MIT",
+      "scanned": 465,
+      "skipped_short": 71,
+      "skipped_duplicate": 0,
+      "skipped_low_arabic": 0,
+      "skipped_diacritics": 0,
+      "skipped_low_unique": 0,
+      "chars": 25848,
+      "arabic_letter_ratio": 0.9911496092646643,
+      "diacritic_ratio": 0.0
+    },
+    {
+      "name": "diacritized",
+      "words": 7500,
+      "docs": 129,
+      "source": "arbml/tashkeela",
+      "config": "default",
+      "split": "train",
+      "revision": "96cc2daa40aa7357476ebcaf62392913d75e5a21",
+      "revision_requested": "96cc2daa40aa7357476ebcaf62392913d75e5a21",
+      "license": "GPL-2.0 (data; do not redistribute the built corpus)",
+      "scanned": 129,
+      "skipped_short": 0,
+      "skipped_duplicate": 0,
+      "skipped_low_arabic": 0,
+      "skipped_diacritics": 0,
+      "skipped_low_unique": 0,
+      "chars": 61799,
+      "arabic_letter_ratio": 0.9989807325573749,
+      "diacritic_ratio": 0.7903761972155482
+    }
+  ],
+  "summary": {
+    "total_docs": 1499,
+    "total_words": 50000,
+    "total_chars": 305187,
+    "total_bytes": 550645,
+    "arabic_letter_ratio": 0.9435369869153722,
+    "diacritic_ratio": 0.11263115102294372,
+    "strata": [
+      {
+        "name": "msa",
+        "docs": 170,
+        "words": 27500,
+        "chars": 164284,
+        "bytes": 290646,
+        "arabic_letter_ratio": 0.9105884593410779,
+        "diacritic_ratio": 0.0034427561354258,
+        "licenses": [
+          "CC-BY-SA-4.0"
+        ]
+      },
+      {
+        "name": "egyptian",
+        "docs": 806,
+        "words": 10000,
+        "chars": 53256,
+        "bytes": 96864,
+        "arabic_letter_ratio": 0.9846052091410847,
+        "diacritic_ratio": 0.005003358736188645,
+        "licenses": [
+          "MIT"
+        ]
+      },
+      {
+        "name": "gulf",
+        "docs": 394,
+        "words": 5000,
+        "chars": 25848,
+        "bytes": 46908,
+        "arabic_letter_ratio": 0.9911496092646643,
+        "diacritic_ratio": 0.0,
+        "licenses": [
+          "MIT"
+        ]
+      },
+      {
+        "name": "diacritized",
+        "docs": 129,
+        "words": 7500,
+        "chars": 61799,
+        "bytes": 116227,
+        "arabic_letter_ratio": 0.9989807325573749,
+        "diacritic_ratio": 0.7903761972155482,
+        "licenses": [
+          "GPL-2.0 (data; do not redistribute the built corpus)"
+        ]
+      }
+    ]
+  },
+  "warnings": [
+    "The built corpus is not redistributed. Tashkeela is GPL-2.0 data.",
+    "Exact 50,000-word budget is enforced; the last document in a stratum may be shorter than min_words to hit the budget exactly."
+  ]
+}

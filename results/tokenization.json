@@ -1,0 +1,4611 @@
+{
+  "meta": {
+    "created_at": "2026-10-25T14:48:26+00:00",
+    "input": "D:\\Axioms\\LLM Arabic Tax fert EXP\\data\\corpus.jsonl",
+    "n_docs": 1499,
+    "n_words": 50000,
+    "views": [
+      "raw",
+      "nfkc",
+      "aratoken_norm"
+    ],
+    "tokenizers": [
+      "o200k",
+      "qwen3",
+      "aratoken",
+      "aratoken_lep",
+      "arabert",
+      "camelbert"
+    ],
+    "headline_view": "raw",
+    "primary_tokenizers": [
+      "o200k",
+      "llama4",
+      "qwen3",
+      "gemini",
+      "aratoken"
+    ],
+    "secondary_tokenizers": [
+      "aratoken_lep",
+      "arabert",
+      "camelbert"
+    ],
+    "illustrative_price_usd_per_1m": 0.5,
+    "seed": 20261025,
+    "config_path": "D:\\Axioms\\LLM Arabic Tax fert EXP\\config.yaml",
+    "config_sha256": "91a268b5088c5ce1726514da2d9c6d5d145f1445682ebc13c0e69ed0b7e8ab53",
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "versions": {
+      "datasets": "4.8.5",
+      "transformers": "4.57.6",
+      "sentencepiece": "0.2.2",
+      "tiktoken": "0.14.0",
+      "PyYAML": "6.0.3",
+      "requests": "2.34.2",
+      "huggingface_hub": "0.36.2",
+      "tqdm": "4.70.1",
+      "torch": null,
+      "vllm": null
+    },
+    "reference_tokenizer": "aratoken"
+  },
+  "corpus": {
+    "total_docs": 1499,
+    "total_words": 50000,
+    "total_chars": 305187,
+    "total_bytes": 550645,
+    "arabic_letter_ratio": 0.9435369869153722,
+    "diacritic_ratio": 0.11263115102294372,
+    "strata": [
+      {
+        "name": "msa",
+        "docs": 170,
+        "words": 27500,
+        "chars": 164284,
+        "bytes": 290646,
+        "arabic_letter_ratio": 0.9105884593410779,
+        "diacritic_ratio": 0.0034427561354258,
+        "licenses": [
+          "CC-BY-SA-4.0"
+        ]
+      },
+      {
+        "name": "egyptian",
+        "docs": 806,
+        "words": 10000,
+        "chars": 53256,
+        "bytes": 96864,
+        "arabic_letter_ratio": 0.9846052091410847,
+        "diacritic_ratio": 0.005003358736188645,
+        "licenses": [
+          "MIT"
+        ]
+      },
+      {
+        "name": "gulf",
+        "docs": 394,
+        "words": 5000,
+        "chars": 25848,
+        "bytes": 46908,
+        "arabic_letter_ratio": 0.9911496092646643,
+        "diacritic_ratio": 0.0,
+        "licenses": [
+          "MIT"
+        ]
+      },
+      {
+        "name": "diacritized",
+        "docs": 129,
+        "words": 7500,
+        "chars": 61799,
+        "bytes": 116227,
+        "arabic_letter_ratio": 0.9989807325573749,
+        "diacritic_ratio": 0.7903761972155482,
+        "licenses": [
+          "GPL-2.0 (data; do not redistribute the built corpus)"
+        ]
+      }
+    ]
+  },
+  "tokenizers": {
+    "o200k": {
+      "status": "ok",
+      "class": "english-centric-proxy",
+      "optional": false,
+      "kind": "tiktoken",
+      "encoding": "o200k_base",
+      "vocab_size": 200019,
+      "version": "tiktoken:o200k_base:200019"
+    },
+    "qwen3": {
+      "status": "ok",
+      "class": "massive-multilingual",
+      "optional": false,
+      "kind": "hf",
+      "repo": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "tokenizer_class": "Qwen2TokenizerFast",
+      "is_fast": true,
+      "vocab_size": 151669,
+      "model_max_length": 131072,
+      "version": "hf:Qwen/Qwen3-8B@b968826d9c46dd6066d109eabc6255188de91218:Qwen2TokenizerFast"
+    },
+    "aratoken": {
+      "status": "ok",
+      "class": "arabic-specialized",
+      "optional": false,
+      "kind": "sentencepiece",
+      "repo": "mariklolik/AraToken",
+      "revision": "6feb597abc5cb579077e57faebde1cf45813c771",
+      "filename": "sentencepiece/fw2hq_sp_drop_norm/sentencepiece.model",
+      "vocab_size": 80000,
+      "published_normalization": "aratoken",
+      "version": "sp:mariklolik/AraToken@6feb597abc5cb579077e57faebde1cf45813c771:sentencepiece/fw2hq_sp_drop_norm/sentencepiece.model:c019204cede4"
+    },
+    "aratoken_lep": {
+      "status": "ok",
+      "class": "arabic-specialized-extended",
+      "optional": true,
+      "kind": "hf",
+      "repo": "mariklolik/AraToken-Qwen3-0.6B-LEP",
+      "revision": "6ad58e619a2934b128db32908c939895f1083add",
+      "tokenizer_class": "Qwen2TokenizerFast",
+      "is_fast": true,
+      "vocab_size": 282826,
+      "model_max_length": 131072,
+      "version": "hf:mariklolik/AraToken-Qwen3-0.6B-LEP@6ad58e619a2934b128db32908c939895f1083add:Qwen2TokenizerFast"
+    },
+    "arabert": {
+      "status": "ok",
+      "class": "arabic-bert-baseline",
+      "optional": false,
+      "kind": "hf",
+      "repo": "aubmindlab/bert-base-arabertv02",
+      "revision": "016fb9d6768f522a59c6e0d2d5d5d43a4e1bff60",
+      "tokenizer_class": "BertTokenizerFast",
+      "is_fast": true,
+      "vocab_size": 64000,
+      "model_max_length": 512,
+      "version": "hf:aubmindlab/bert-base-arabertv02@016fb9d6768f522a59c6e0d2d5d5d43a4e1bff60:BertTokenizerFast"
+    },
+    "camelbert": {
+      "status": "ok",
+      "class": "arabic-dialect-bert-baseline",
+      "optional": false,
+      "kind": "hf",
+      "repo": "CAMeL-Lab/bert-base-arabic-camelbert-mix",
+      "revision": "9be352797bdf28a9ae21e2ae582aaaca7abdb22d",
+      "tokenizer_class": "BertTokenizerFast",
+      "is_fast": true,
+      "vocab_size": 30000,
+      "model_max_length": null,
+      "version": "hf:CAMeL-Lab/bert-base-arabic-camelbert-mix@9be352797bdf28a9ae21e2ae582aaaca7abdb22d:BertTokenizerFast"
+    }
+  },
+  "metrics": [
+    {
+      "tokenizer": "o200k",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 118582,
+      "chars": 305187,
+      "bytes": 550645,
+      "unk": 0,
+      "fertility": 2.37164,
+      "fertility_ci": [
+        2.289052615740874,
+        2.457536521761504
+      ],
+      "chars_per_token": 2.5736368082845624,
+      "bytes_per_token": 4.64357996997858,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 118582.00000000001,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 53971.091733989975
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 54337,
+      "chars": 164284,
+      "bytes": 290646,
+      "unk": 0,
+      "fertility": 1.9758909090909091,
+      "fertility_ci": [
+        1.9460959372648894,
+        2.006887484597598
+      ],
+      "chars_per_token": 3.0234278668310726,
+      "bytes_per_token": 5.348951911220715,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 98794.54545454546,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 64780.904356147745
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 17130,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 0,
+      "fertility": 1.713,
+      "fertility_ci": [
+        1.6950191986971612,
+        1.7297650784335876
+      ],
+      "chars_per_token": 3.1089316987740805,
+      "bytes_per_token": 5.654640980735552,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 85650.0,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 74722.70869819031
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 8525,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 1.705,
+      "fertility_ci": [
+        1.6826166316574063,
+        1.7286666096729488
+      ],
+      "chars_per_token": 3.0320234604105574,
+      "bytes_per_token": 5.502404692082111,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 85250.0,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 75073.3137829912
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 38590,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 0,
+      "fertility": 5.145333333333333,
+      "fertility_ci": [
+        5.070527659294034,
+        5.22545595934489
+      ],
+      "chars_per_token": 1.601425239699404,
+      "bytes_per_token": 3.011842446229593,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 257266.66666666666,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 24876.911116869655
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 118590,
+      "chars": 305191,
+      "bytes": 550647,
+      "unk": 0,
+      "fertility": 2.3718,
+      "fertility_ci": [
+        2.2900871624793697,
+        2.4539865677157913
+      ],
+      "chars_per_token": 2.573496922168817,
+      "bytes_per_token": 4.643283582089552,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 118590.0,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 53967.45088118729
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 54340,
+      "chars": 164288,
+      "bytes": 290648,
+      "unk": 0,
+      "fertility": 1.976,
+      "fertility_ci": [
+        1.94304696168822,
+        2.0061576108190793
+      ],
+      "chars_per_token": 3.0233345601766652,
+      "bytes_per_token": 5.348693411851307,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 98800.0,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 64777.327935222675
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 17135,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 0,
+      "fertility": 1.7135,
+      "fertility_ci": [
+        1.6964621293972062,
+        1.7308158960308784
+      ],
+      "chars_per_token": 3.1080245112343157,
+      "bytes_per_token": 5.652990954187336,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 85675.0,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 74700.90458126641
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 8525,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 1.705,
+      "fertility_ci": [
+        1.6815186188620026,
+        1.7293130355364945
+      ],
+      "chars_per_token": 3.0320234604105574,
+      "bytes_per_token": 5.502404692082111,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 85250.0,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 75073.3137829912
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 38590,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 0,
+      "fertility": 5.145333333333333,
+      "fertility_ci": [
+        5.07441647723759,
+        5.223105413681829
+      ],
+      "chars_per_token": 1.601425239699404,
+      "bytes_per_token": 3.011842446229593,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 257266.66666666666,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 24876.911116869655
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 49987,
+      "tokens": 92751,
+      "chars": 280477,
+      "bytes": 499979,
+      "unk": 0,
+      "fertility": 1.8555024306319643,
+      "fertility_ci": [
+        1.8345047949949642,
+        1.876414836762119
+      ],
+      "chars_per_token": 3.0239781781328503,
+      "bytes_per_token": 5.390551045271749,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 92775.12153159821,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 68984.01095405979
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 54691,
+      "chars": 163828,
+      "bytes": 288710,
+      "unk": 0,
+      "fertility": 1.9887636363636363,
+      "fertility_ci": [
+        1.9590314168205452,
+        2.0191444431313115
+      ],
+      "chars_per_token": 2.9955202867016513,
+      "bytes_per_token": 5.2789307198625,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 99438.18181818181,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 64361.5951436251
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 17052,
+      "chars": 53035,
+      "bytes": 96206,
+      "unk": 0,
+      "fertility": 1.7052,
+      "fertility_ci": [
+        1.6880956736027195,
+        1.7221058910629194
+      ],
+      "chars_per_token": 3.1101923528031903,
+      "bytes_per_token": 5.641918836500118,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 85260.0,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 75064.5085620455
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 8525,
+      "chars": 25848,
+      "bytes": 46902,
+      "unk": 0,
+      "fertility": 1.705,
+      "fertility_ci": [
+        1.6820056455843317,
+        1.7277647321080614
+      ],
+      "chars_per_token": 3.0320234604105574,
+      "bytes_per_token": 5.501700879765396,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 85250.0,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 75073.3137829912
+    },
+    {
+      "tokenizer": "o200k",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "english-centric-proxy",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7487,
+      "tokens": 12483,
+      "chars": 37766,
+      "bytes": 68161,
+      "unk": 0,
+      "fertility": 1.6672899692800855,
+      "fertility_ci": [
+        1.6451384324072484,
+        1.6899764372665356
+      ],
+      "chars_per_token": 3.025394536569735,
+      "bytes_per_token": 5.460306016182008,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 83364.49846400428,
+      "target_words": 50000,
+      "context_window": 128000,
+      "context_words_equivalent": 76771.28895297604
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 146556,
+      "chars": 305187,
+      "bytes": 550645,
+      "unk": 0,
+      "fertility": 2.93112,
+      "fertility_ci": [
+        2.823959265674611,
+        3.0511443422011975
+      ],
+      "chars_per_token": 2.0823917137476458,
+      "bytes_per_token": 3.7572327301509323,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 146556.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 11179.344414421792
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 66368,
+      "chars": 164284,
+      "bytes": 290646,
+      "unk": 0,
+      "fertility": 2.413381818181818,
+      "fertility_ci": [
+        2.378585454337944,
+        2.447219459284104
+      ],
+      "chars_per_token": 2.4753495660559306,
+      "bytes_per_token": 4.379309305689489,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 120669.0909090909,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 13577.627772420445
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 20280,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 0,
+      "fertility": 2.028,
+      "fertility_ci": [
+        2.0081456699810043,
+        2.0486925213211036
+      ],
+      "chars_per_token": 2.62603550295858,
+      "bytes_per_token": 4.776331360946745,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 101400.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 16157.790927021697
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 10141,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 2.0282,
+      "fertility_ci": [
+        2.000596063004433,
+        2.05798673960706
+      ],
+      "chars_per_token": 2.548861059067153,
+      "bytes_per_token": 4.625579331426881,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 101410.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 16156.19761364757
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 49767,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 0,
+      "fertility": 6.6356,
+      "fertility_ci": [
+        6.55177578139306,
+        6.721294633199358
+      ],
+      "chars_per_token": 1.241766632507485,
+      "bytes_per_token": 2.335423071513252,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 331780.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 4938.212068237989
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 146558,
+      "chars": 305191,
+      "bytes": 550647,
+      "unk": 0,
+      "fertility": 2.93116,
+      "fertility_ci": [
+        2.8253247813006146,
+        3.0471481779384506
+      ],
+      "chars_per_token": 2.0823905893912307,
+      "bytes_per_token": 3.7571951036449733,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 146558.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 11179.191855784058
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 66370,
+      "chars": 164288,
+      "bytes": 290648,
+      "unk": 0,
+      "fertility": 2.4134545454545453,
+      "fertility_ci": [
+        2.37992025533667,
+        2.4493971666810137
+      ],
+      "chars_per_token": 2.475335241826126,
+      "bytes_per_token": 4.379207473255989,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 120672.72727272726,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 13577.21862287178
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 20280,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 0,
+      "fertility": 2.028,
+      "fertility_ci": [
+        2.0067381801962534,
+        2.0487058454619356
+      ],
+      "chars_per_token": 2.62603550295858,
+      "bytes_per_token": 4.776331360946745,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 101400.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 16157.790927021697
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 10141,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 2.0282,
+      "fertility_ci": [
+        2.0003831041257367,
+        2.056158590322156
+      ],
+      "chars_per_token": 2.548861059067153,
+      "bytes_per_token": 4.625579331426881,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 101410.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 16156.19761364757
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 49767,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 0,
+      "fertility": 6.6356,
+      "fertility_ci": [
+        6.55183548734721,
+        6.7187549349087305
+      ],
+      "chars_per_token": 1.241766632507485,
+      "bytes_per_token": 2.335423071513252,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 331780.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 4938.212068237989
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 49987,
+      "tokens": 111791,
+      "chars": 280477,
+      "bytes": 499979,
+      "unk": 0,
+      "fertility": 2.236401464380739,
+      "fertility_ci": [
+        2.2079745907255126,
+        2.2654353557365363
+      ],
+      "chars_per_token": 2.508940791298047,
+      "bytes_per_token": 4.472444114463597,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 111820.07321903696,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 14652.109883622115
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 66898,
+      "chars": 163828,
+      "bytes": 288710,
+      "unk": 0,
+      "fertility": 2.4326545454545454,
+      "fertility_ci": [
+        2.398025958909109,
+        2.465829036080079
+      ],
+      "chars_per_token": 2.4489222398277977,
+      "bytes_per_token": 4.3156746091064,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 121632.72727272726,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 13470.058895632157
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 20164,
+      "chars": 53035,
+      "bytes": 96206,
+      "unk": 0,
+      "fertility": 2.0164,
+      "fertility_ci": [
+        1.9954094317564595,
+        2.037642510707541
+      ],
+      "chars_per_token": 2.6301825034715334,
+      "bytes_per_token": 4.771176353898036,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 100820.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 16250.743900019837
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 10141,
+      "chars": 25848,
+      "bytes": 46902,
+      "unk": 0,
+      "fertility": 2.0282,
+      "fertility_ci": [
+        1.9994062105857022,
+        2.0573613947078586
+      ],
+      "chars_per_token": 2.548861059067153,
+      "bytes_per_token": 4.624987673799428,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 101410.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 16156.19761364757
+    },
+    {
+      "tokenizer": "qwen3",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "massive-multilingual",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7487,
+      "tokens": 14588,
+      "chars": 37766,
+      "bytes": 68161,
+      "unk": 0,
+      "fertility": 1.948443969547215,
+      "fertility_ci": [
+        1.921790716634087,
+        1.9767856947263533
+      ],
+      "chars_per_token": 2.588840142582945,
+      "bytes_per_token": 4.672401974225391,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 97422.19847736075,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 16817.522347134633
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 115908,
+      "chars": 305187,
+      "bytes": 550645,
+      "unk": 30356,
+      "fertility": 2.31816,
+      "fertility_ci": [
+        2.195071368337348,
+        2.4582963868964995
+      ],
+      "chars_per_token": 2.633010663629775,
+      "bytes_per_token": 4.750707457638817,
+      "unk_rate": 0.26189736687717846,
+      "tokens_for_target_words": 115908.00000000001,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 56541.39489940297
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 45907,
+      "chars": 164284,
+      "bytes": 290646,
+      "unk": 5553,
+      "fertility": 1.6693454545454545,
+      "fertility_ci": [
+        1.6337980276528445,
+        1.7085326594855839
+      ],
+      "chars_per_token": 3.578626353279456,
+      "bytes_per_token": 6.331191321584943,
+      "unk_rate": 0.1209619448014464,
+      "tokens_for_target_words": 83467.27272727272,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 78517.0017644368
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 14087,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 1019,
+      "fertility": 1.4087,
+      "fertility_ci": [
+        1.3877367051327552,
+        1.42903420426779
+      ],
+      "chars_per_token": 3.780506850287499,
+      "bytes_per_token": 6.87612692553418,
+      "unk_rate": 0.0723361964932207,
+      "tokens_for_target_words": 70435.0,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 93044.65109675587
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6300,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 6,
+      "fertility": 1.26,
+      "fertility_ci": [
+        1.2435826827374112,
+        1.2758975247259408
+      ],
+      "chars_per_token": 4.102857142857143,
+      "bytes_per_token": 7.445714285714286,
+      "unk_rate": 0.0009523809523809524,
+      "tokens_for_target_words": 63000.0,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 104025.39682539682
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 49614,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 23778,
+      "fertility": 6.6152,
+      "fertility_ci": [
+        6.5374421028931256,
+        6.693894890795321
+      ],
+      "chars_per_token": 1.2455960011287137,
+      "bytes_per_token": 2.342625065505704,
+      "unk_rate": 0.479259886322409,
+      "tokens_for_target_words": 330760.0,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 19813.762244527756
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 115908,
+      "chars": 305191,
+      "bytes": 550647,
+      "unk": 30356,
+      "fertility": 2.31816,
+      "fertility_ci": [
+        2.188064836087191,
+        2.4509531044418162
+      ],
+      "chars_per_token": 2.6330451737584983,
+      "bytes_per_token": 4.750724712703178,
+      "unk_rate": 0.26189736687717846,
+      "tokens_for_target_words": 115908.00000000001,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 56541.39489940297
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 45907,
+      "chars": 164288,
+      "bytes": 290648,
+      "unk": 5553,
+      "fertility": 1.6693454545454545,
+      "fertility_ci": [
+        1.630929408859084,
+        1.7080198191704097
+      ],
+      "chars_per_token": 3.578713485960747,
+      "bytes_per_token": 6.331234887925588,
+      "unk_rate": 0.1209619448014464,
+      "tokens_for_target_words": 83467.27272727272,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 78517.0017644368
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 14087,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 1019,
+      "fertility": 1.4087,
+      "fertility_ci": [
+        1.3886661367317634,
+        1.4307350158034935
+      ],
+      "chars_per_token": 3.780506850287499,
+      "bytes_per_token": 6.87612692553418,
+      "unk_rate": 0.0723361964932207,
+      "tokens_for_target_words": 70435.0,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 93044.65109675587
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6300,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 6,
+      "fertility": 1.26,
+      "fertility_ci": [
+        1.2434828830598672,
+        1.2768402705655504
+      ],
+      "chars_per_token": 4.102857142857143,
+      "bytes_per_token": 7.445714285714286,
+      "unk_rate": 0.0009523809523809524,
+      "tokens_for_target_words": 63000.0,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 104025.39682539682
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 49614,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 23778,
+      "fertility": 6.6152,
+      "fertility_ci": [
+        6.538670548364915,
+        6.695542900013641
+      ],
+      "chars_per_token": 1.2455960011287137,
+      "bytes_per_token": 2.342625065505704,
+      "unk_rate": 0.479259886322409,
+      "tokens_for_target_words": 330760.0,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 19813.762244527756
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 49987,
+      "tokens": 63487,
+      "chars": 280477,
+      "bytes": 499979,
+      "unk": 196,
+      "fertility": 1.2700702182567467,
+      "fertility_ci": [
+        1.2550830366631105,
+        1.286056584523608
+      ],
+      "chars_per_token": 4.41786507473971,
+      "bytes_per_token": 7.87529730496007,
+      "unk_rate": 0.003087246207885079,
+      "tokens_for_target_words": 63503.51091283734,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 103200.59325531211
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 35831,
+      "chars": 163828,
+      "bytes": 288710,
+      "unk": 196,
+      "fertility": 1.3029454545454546,
+      "fertility_ci": [
+        1.2785320875025958,
+        1.32824384913368
+      ],
+      "chars_per_token": 4.572241913426921,
+      "bytes_per_token": 8.0575479333538,
+      "unk_rate": 0.0054701236359576905,
+      "tokens_for_target_words": 65147.27272727273,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 100596.69001702436
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12351,
+      "chars": 53035,
+      "bytes": 96206,
+      "unk": 0,
+      "fertility": 1.2351,
+      "fertility_ci": [
+        1.2249697810961078,
+        1.2464092078509066
+      ],
+      "chars_per_token": 4.293984292769816,
+      "bytes_per_token": 7.789328799287507,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 61755.00000000001,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 106122.5811675168
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6300,
+      "chars": 25848,
+      "bytes": 46902,
+      "unk": 0,
+      "fertility": 1.26,
+      "fertility_ci": [
+        1.2444008626177743,
+        1.276241168876723
+      ],
+      "chars_per_token": 4.102857142857143,
+      "bytes_per_token": 7.444761904761905,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 63000.0,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 104025.39682539682
+    },
+    {
+      "tokenizer": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-specialized",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7487,
+      "tokens": 9005,
+      "chars": 37766,
+      "bytes": 68161,
+      "unk": 0,
+      "fertility": 1.2027514358220917,
+      "fertility_ci": [
+        1.1874565708895515,
+        1.2184605012943421
+      ],
+      "chars_per_token": 4.193892282065519,
+      "bytes_per_token": 7.5692393114936145,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 60137.57179110458,
+      "target_words": 50000,
+      "context_window": 131072,
+      "context_words_equivalent": 108976.79777901166
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 66695,
+      "chars": 305187,
+      "bytes": 550645,
+      "unk": 0,
+      "fertility": 1.3339,
+      "fertility_ci": [
+        1.3140832531100783,
+        1.3536525604327472
+      ],
+      "chars_per_token": 4.575860259389759,
+      "bytes_per_token": 8.256166129395007,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 66695.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 24565.55963715421
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 38928,
+      "chars": 164284,
+      "bytes": 290646,
+      "unk": 0,
+      "fertility": 1.4155636363636364,
+      "fertility_ci": [
+        1.3868047984296006,
+        1.4454395767674602
+      ],
+      "chars_per_token": 4.220201397451706,
+      "bytes_per_token": 7.466245376078915,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 70778.18181818182,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 23148.376489930128
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12700,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 0,
+      "fertility": 1.27,
+      "fertility_ci": [
+        1.257351439522755,
+        1.2827368465129911
+      ],
+      "chars_per_token": 4.193385826771654,
+      "bytes_per_token": 7.627086614173228,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 63500.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 25801.574803149604
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6459,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 1.2918,
+      "fertility_ci": [
+        1.2726183283355263,
+        1.3112760544820534
+      ],
+      "chars_per_token": 4.001857872735718,
+      "bytes_per_token": 7.262424523920111,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 64590.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 25366.155751664344
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 8608,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 0,
+      "fertility": 1.1477333333333333,
+      "fertility_ci": [
+        1.1337695481618362,
+        1.1620854383674522
+      ],
+      "chars_per_token": 7.17925185873606,
+      "bytes_per_token": 13.502207249070633,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 57386.666666666664,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 28550.18587360595
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 66695,
+      "chars": 305191,
+      "bytes": 550647,
+      "unk": 0,
+      "fertility": 1.3339,
+      "fertility_ci": [
+        1.3156173581935897,
+        1.3522628041946767
+      ],
+      "chars_per_token": 4.575920233900592,
+      "bytes_per_token": 8.256196116650424,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 66695.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 24565.55963715421
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 38928,
+      "chars": 164288,
+      "bytes": 290648,
+      "unk": 0,
+      "fertility": 1.4155636363636364,
+      "fertility_ci": [
+        1.385188979775377,
+        1.44866992142583
+      ],
+      "chars_per_token": 4.220304151253597,
+      "bytes_per_token": 7.4662967529798605,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 70778.18181818182,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 23148.376489930128
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12700,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 0,
+      "fertility": 1.27,
+      "fertility_ci": [
+        1.2572809459945382,
+        1.282980347558119
+      ],
+      "chars_per_token": 4.193385826771654,
+      "bytes_per_token": 7.627086614173228,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 63500.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 25801.574803149604
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6459,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 1.2918,
+      "fertility_ci": [
+        1.2716156974049642,
+        1.3129813445321306
+      ],
+      "chars_per_token": 4.001857872735718,
+      "bytes_per_token": 7.262424523920111,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 64590.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 25366.155751664344
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 8608,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 0,
+      "fertility": 1.1477333333333333,
+      "fertility_ci": [
+        1.1338415731206157,
+        1.162550102286423
+      ],
+      "chars_per_token": 7.17925185873606,
+      "bytes_per_token": 13.502207249070633,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 57386.666666666664,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 28550.18587360595
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 49987,
+      "tokens": 67853,
+      "chars": 280477,
+      "bytes": 499979,
+      "unk": 0,
+      "fertility": 1.357412927361114,
+      "fertility_ci": [
+        1.3382164469518252,
+        1.3766819928121103
+      ],
+      "chars_per_token": 4.1335976301711055,
+      "bytes_per_token": 7.368561449014782,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 67870.64636805569,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 24140.038259177927
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 39690,
+      "chars": 163828,
+      "bytes": 288710,
+      "unk": 0,
+      "fertility": 1.4432727272727273,
+      "fertility_ci": [
+        1.41419935195422,
+        1.4746268701284495
+      ],
+      "chars_per_token": 4.127689594356261,
+      "bytes_per_token": 7.274124464600655,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 72163.63636363637,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 22703.95565633661
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12836,
+      "chars": 53035,
+      "bytes": 96206,
+      "unk": 0,
+      "fertility": 1.2836,
+      "fertility_ci": [
+        1.270971268020615,
+        1.296713918877645
+      ],
+      "chars_per_token": 4.131738859457775,
+      "bytes_per_token": 7.495014023060143,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 64180.00000000001,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 25528.201932066062
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6459,
+      "chars": 25848,
+      "bytes": 46902,
+      "unk": 0,
+      "fertility": 1.2918,
+      "fertility_ci": [
+        1.2731056797823785,
+        1.3114520256109021
+      ],
+      "chars_per_token": 4.001857872735718,
+      "bytes_per_token": 7.261495587552253,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 64590.0,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 25366.155751664344
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-specialized-extended",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7487,
+      "tokens": 8868,
+      "chars": 37766,
+      "bytes": 68161,
+      "unk": 0,
+      "fertility": 1.184453051956725,
+      "fertility_ci": [
+        1.1699543087775124,
+        1.1999214169775883
+      ],
+      "chars_per_token": 4.258682904826342,
+      "bytes_per_token": 7.6861750112765,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 59222.65259783625,
+      "target_words": 50000,
+      "context_window": 32768,
+      "context_words_equivalent": 27665.08976093821
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 63758,
+      "chars": 305187,
+      "bytes": 550645,
+      "unk": 8176,
+      "fertility": 1.27516,
+      "fertility_ci": [
+        1.2524350815889536,
+        1.297880610244119
+      ],
+      "chars_per_token": 4.786646381630541,
+      "bytes_per_token": 8.636484833275825,
+      "unk_rate": 0.1282348881708962,
+      "tokens_for_target_words": 63758.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 401.51824084820726
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 37737,
+      "chars": 164284,
+      "bytes": 290646,
+      "unk": 610,
+      "fertility": 1.3722545454545454,
+      "fertility_ci": [
+        1.3380104040975298,
+        1.4086054482603658
+      ],
+      "chars_per_token": 4.353393221506744,
+      "bytes_per_token": 7.7018840925351775,
+      "unk_rate": 0.016164506982537033,
+      "tokens_for_target_words": 68612.72727272726,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 373.1086201870843
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12236,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 167,
+      "fertility": 1.2236,
+      "fertility_ci": [
+        1.2131103836006278,
+        1.2340378130114342
+      ],
+      "chars_per_token": 4.352402745995423,
+      "bytes_per_token": 7.9163125204315135,
+      "unk_rate": 0.013648251062438705,
+      "tokens_for_target_words": 61180.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 418.4373978424322
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6272,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 1.2544,
+      "fertility_ci": [
+        1.2395623204777642,
+        1.2686251228498109
+      ],
+      "chars_per_token": 4.121173469387755,
+      "bytes_per_token": 7.478954081632653,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 62720.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 408.16326530612247
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 7513,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 7399,
+      "fertility": 1.0017333333333334,
+      "fertility_ci": [
+        1.0,
+        1.0044385115022696
+      ],
+      "chars_per_token": 8.225608944496207,
+      "bytes_per_token": 15.470118461333689,
+      "unk_rate": 0.9848263010781313,
+      "tokens_for_target_words": 50086.66666666667,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 511.1140689471582
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 63761,
+      "chars": 305191,
+      "bytes": 550647,
+      "unk": 8175,
+      "fertility": 1.27522,
+      "fertility_ci": [
+        1.2518411707717674,
+        1.2984964464200528
+      ],
+      "chars_per_token": 4.786483900817114,
+      "bytes_per_token": 8.636109847712552,
+      "unk_rate": 0.12821317106067973,
+      "tokens_for_target_words": 63761.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 401.49934913191447
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 37740,
+      "chars": 164288,
+      "bytes": 290648,
+      "unk": 609,
+      "fertility": 1.3723636363636365,
+      "fertility_ci": [
+        1.3386612876191446,
+        1.4100814116293654
+      ],
+      "chars_per_token": 4.353153153153153,
+      "bytes_per_token": 7.701324854266031,
+      "unk_rate": 0.01613672496025437,
+      "tokens_for_target_words": 68618.18181818182,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 373.0789613142554
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12236,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 167,
+      "fertility": 1.2236,
+      "fertility_ci": [
+        1.2136239714998487,
+        1.2340606305992432
+      ],
+      "chars_per_token": 4.352402745995423,
+      "bytes_per_token": 7.9163125204315135,
+      "unk_rate": 0.013648251062438705,
+      "tokens_for_target_words": 61180.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 418.4373978424322
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6272,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 1.2544,
+      "fertility_ci": [
+        1.239856198836069,
+        1.269597664170976
+      ],
+      "chars_per_token": 4.121173469387755,
+      "bytes_per_token": 7.478954081632653,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 62720.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 408.16326530612247
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 7513,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 7399,
+      "fertility": 1.0017333333333334,
+      "fertility_ci": [
+        1.0,
+        1.0046995105910088
+      ],
+      "chars_per_token": 8.225608944496207,
+      "bytes_per_token": 15.470118461333689,
+      "unk_rate": 0.9848263010781313,
+      "tokens_for_target_words": 50086.66666666667,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 511.1140689471582
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 49987,
+      "tokens": 66108,
+      "chars": 280477,
+      "bytes": 499979,
+      "unk": 172,
+      "fertility": 1.3225038510012603,
+      "fertility_ci": [
+        1.3021687086155982,
+        1.3447363301186976
+      ],
+      "chars_per_token": 4.242708900586918,
+      "bytes_per_token": 7.563063471894476,
+      "unk_rate": 0.0026018031100623223,
+      "tokens_for_target_words": 66125.19255006302,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 387.144430326133
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 38227,
+      "chars": 163828,
+      "bytes": 288710,
+      "unk": 171,
+      "fertility": 1.3900727272727273,
+      "fertility_ci": [
+        1.3567449160671365,
+        1.4257394397872984
+      ],
+      "chars_per_token": 4.28566196667277,
+      "bytes_per_token": 7.552515237920841,
+      "unk_rate": 0.004473278049546133,
+      "tokens_for_target_words": 69503.63636363637,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 368.32605226672246
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12314,
+      "chars": 53035,
+      "bytes": 96206,
+      "unk": 1,
+      "fertility": 1.2314,
+      "fertility_ci": [
+        1.2208012821515555,
+        1.242339199204593
+      ],
+      "chars_per_token": 4.306886470683774,
+      "bytes_per_token": 7.812733474094527,
+      "unk_rate": 8.120838070488874e-05,
+      "tokens_for_target_words": 61570.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 415.78690920903034
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6272,
+      "chars": 25848,
+      "bytes": 46902,
+      "unk": 0,
+      "fertility": 1.2544,
+      "fertility_ci": [
+        1.2393219475601929,
+        1.268777415697704
+      ],
+      "chars_per_token": 4.121173469387755,
+      "bytes_per_token": 7.4779974489795915,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 62720.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 408.16326530612247
+    },
+    {
+      "tokenizer": "arabert",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-bert-baseline",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7487,
+      "tokens": 9295,
+      "chars": 37766,
+      "bytes": 68161,
+      "unk": 0,
+      "fertility": 1.2414852410845465,
+      "fertility_ci": [
+        1.22729441899708,
+        1.2572448213905822
+      ],
+      "chars_per_token": 4.063044647660032,
+      "bytes_per_token": 7.333082302313072,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 62074.26205422732,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 412.4092522861754
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 68075,
+      "chars": 305187,
+      "bytes": 550645,
+      "unk": 8116,
+      "fertility": 1.3615,
+      "fertility_ci": [
+        1.3342548117115183,
+        1.3883754261179924
+      ],
+      "chars_per_token": 4.483099522585384,
+      "bytes_per_token": 8.08879911861917,
+      "unk_rate": 0.1192214469335292,
+      "tokens_for_target_words": 68075.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 376.05582078589794
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 41877,
+      "chars": 164284,
+      "bytes": 290646,
+      "unk": 551,
+      "fertility": 1.5228,
+      "fertility_ci": [
+        1.4896524505037214,
+        1.558213131346283
+      ],
+      "chars_per_token": 3.9230126322324903,
+      "bytes_per_token": 6.9404685149366,
+      "unk_rate": 0.013157580533467059,
+      "tokens_for_target_words": 76140.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 336.2227475702653
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12500,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 166,
+      "fertility": 1.25,
+      "fertility_ci": [
+        1.2390124643354277,
+        1.2604514190405591
+      ],
+      "chars_per_token": 4.26048,
+      "bytes_per_token": 7.74912,
+      "unk_rate": 0.01328,
+      "tokens_for_target_words": 62500.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 409.6
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6193,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 1.2386,
+      "fertility_ci": [
+        1.2233659345629992,
+        1.2540769075900946
+      ],
+      "chars_per_token": 4.173744550298724,
+      "bytes_per_token": 7.574358146294204,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 61929.99999999999,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 413.3699337962216
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 7505,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 7399,
+      "fertility": 1.0006666666666666,
+      "fertility_ci": [
+        1.0001321527686005,
+        1.0014372842324462
+      ],
+      "chars_per_token": 8.23437708194537,
+      "bytes_per_token": 15.486608927381745,
+      "unk_rate": 0.9858760826115923,
+      "tokens_for_target_words": 50033.33333333333,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 511.6588940706196
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 50000,
+      "tokens": 68080,
+      "chars": 305191,
+      "bytes": 550647,
+      "unk": 8113,
+      "fertility": 1.3616,
+      "fertility_ci": [
+        1.3358365868646918,
+        1.3880772167791167
+      ],
+      "chars_per_token": 4.4828290246768505,
+      "bytes_per_token": 8.088234430082256,
+      "unk_rate": 0.11916862514688602,
+      "tokens_for_target_words": 68080.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 376.02820211515865
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 41882,
+      "chars": 164288,
+      "bytes": 290648,
+      "unk": 548,
+      "fertility": 1.5229818181818182,
+      "fertility_ci": [
+        1.490179184652829,
+        1.5604473190963646
+      ],
+      "chars_per_token": 3.922639797526384,
+      "bytes_per_token": 6.9396876939974215,
+      "unk_rate": 0.013084379924549926,
+      "tokens_for_target_words": 76149.09090909091,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 336.18260828040684
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12500,
+      "chars": 53256,
+      "bytes": 96864,
+      "unk": 166,
+      "fertility": 1.25,
+      "fertility_ci": [
+        1.2395177673462454,
+        1.261217114243305
+      ],
+      "chars_per_token": 4.26048,
+      "bytes_per_token": 7.74912,
+      "unk_rate": 0.01328,
+      "tokens_for_target_words": 62500.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 409.6
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6193,
+      "chars": 25848,
+      "bytes": 46908,
+      "unk": 0,
+      "fertility": 1.2386,
+      "fertility_ci": [
+        1.2233009512781083,
+        1.2533531959056086
+      ],
+      "chars_per_token": 4.173744550298724,
+      "bytes_per_token": 7.574358146294204,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 61929.99999999999,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 413.3699337962216
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7500,
+      "tokens": 7505,
+      "chars": 61799,
+      "bytes": 116227,
+      "unk": 7399,
+      "fertility": 1.0006666666666666,
+      "fertility_ci": [
+        1.0001322384002878,
+        1.0014527830092654
+      ],
+      "chars_per_token": 8.23437708194537,
+      "bytes_per_token": 15.486608927381745,
+      "unk_rate": 0.9858760826115923,
+      "tokens_for_target_words": 50033.33333333333,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 511.6588940706196
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 1499,
+      "expected_docs": 1499,
+      "coverage": 1.0,
+      "words": 49987,
+      "tokens": 70645,
+      "chars": 280477,
+      "bytes": 499979,
+      "unk": 110,
+      "fertility": 1.4132674495368795,
+      "fertility_ci": [
+        1.3896671104182645,
+        1.4369748067171568
+      ],
+      "chars_per_token": 3.970231438884564,
+      "bytes_per_token": 7.0773444688229885,
+      "unk_rate": 0.0015570811805506405,
+      "tokens_for_target_words": 70663.37247684397,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 362.2810389978059
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 170,
+      "expected_docs": 170,
+      "coverage": 1.0,
+      "words": 27500,
+      "tokens": 42203,
+      "chars": 163828,
+      "bytes": 288710,
+      "unk": 110,
+      "fertility": 1.5346545454545455,
+      "fertility_ci": [
+        1.50067604204199,
+        1.5707071086819113
+      ],
+      "chars_per_token": 3.881904130038149,
+      "bytes_per_token": 6.840982868516456,
+      "unk_rate": 0.002606449778451769,
+      "tokens_for_target_words": 76732.72727272728,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 333.6255716418264
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 806,
+      "expected_docs": 806,
+      "coverage": 1.0,
+      "words": 10000,
+      "tokens": 12514,
+      "chars": 53035,
+      "bytes": 96206,
+      "unk": 0,
+      "fertility": 1.2514,
+      "fertility_ci": [
+        1.24062507992592,
+        1.2625486576268499
+      ],
+      "chars_per_token": 4.2380533802141604,
+      "bytes_per_token": 7.687869586063608,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 62570.0,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 409.14176122742526
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 394,
+      "expected_docs": 394,
+      "coverage": 1.0,
+      "words": 5000,
+      "tokens": 6193,
+      "chars": 25848,
+      "bytes": 46902,
+      "unk": 0,
+      "fertility": 1.2386,
+      "fertility_ci": [
+        1.2234068713232709,
+        1.2535548168870148
+      ],
+      "chars_per_token": 4.173744550298724,
+      "bytes_per_token": 7.573389310511868,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 61929.99999999999,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 413.3699337962216
+    },
+    {
+      "tokenizer": "camelbert",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "docs": 129,
+      "expected_docs": 129,
+      "coverage": 1.0,
+      "words": 7487,
+      "tokens": 9735,
+      "chars": 37766,
+      "bytes": 68161,
+      "unk": 0,
+      "fertility": 1.300253773206892,
+      "fertility_ci": [
+        1.2811708176318497,
+        1.318481587157451
+      ],
+      "chars_per_token": 3.8794042116076013,
+      "bytes_per_token": 7.001643554185927,
+      "unk_rate": 0.0,
+      "tokens_for_target_words": 65012.6886603446,
+      "target_words": 50000,
+      "context_window": 512,
+      "context_words_equivalent": 393.7692860811505
+    }
+  ],
+  "paired": [
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.0230700210511785,
+      "ratio_ci": [
+        1.0005959318511657,
+        1.0468671253759414
+      ],
+      "diff_tokens_per_word": 0.05348,
+      "diff_ci": [
+        0.0014509331549859732,
+        0.10292381157089586
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.1836321258195919,
+      "ratio_ci": [
+        1.1587223181590438,
+        1.2078271763238988
+      ],
+      "diff_tokens_per_word": 0.30654545454545457,
+      "diff_ci": [
+        0.26991115315904624,
+        0.34086915526295275
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.2160147653865265,
+      "ratio_ci": [
+        1.1978827913321963,
+        1.2336335534418459
+      ],
+      "diff_tokens_per_word": 0.3043,
+      "diff_ci": [
+        0.2820300816722787,
+        0.32512145135390624
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.3531746031746033,
+      "ratio_ci": [
+        1.3380600264776634,
+        1.3684559417599447
+      ],
+      "diff_tokens_per_word": 0.445,
+      "diff_ci": [
+        0.42734381307399205,
+        0.4629819149185984
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.7778046519127666,
+      "ratio_ci": [
+        0.7731525823462387,
+        0.7821975651695742
+      ],
+      "diff_tokens_per_word": -1.4698666666666667,
+      "diff_ci": [
+        -1.502701215395308,
+        -1.4389539002742668
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.023139041308624,
+      "ratio_ci": [
+        1.0006192570572179,
+        1.0464995519217504
+      ],
+      "diff_tokens_per_word": 0.05364,
+      "diff_ci": [
+        0.001525961980396085,
+        0.10157001869456646
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.1836974753305596,
+      "ratio_ci": [
+        1.1592167259148733,
+        1.20760432247971
+      ],
+      "diff_tokens_per_word": 0.30665454545454546,
+      "diff_ci": [
+        0.26971909466893396,
+        0.3420068295691126
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.2163697025626463,
+      "ratio_ci": [
+        1.1996605132915492,
+        1.234100564754635
+      ],
+      "diff_tokens_per_word": 0.3048,
+      "diff_ci": [
+        0.28384967826102675,
+        0.3258699402525813
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.3531746031746033,
+      "ratio_ci": [
+        1.3375277749951384,
+        1.3687574691521418
+      ],
+      "diff_tokens_per_word": 0.445,
+      "diff_ci": [
+        0.4272267726075399,
+        0.4623889243911779
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.7778046519127666,
+      "ratio_ci": [
+        0.7729695669753204,
+        0.7825068822758657
+      ],
+      "diff_tokens_per_word": -1.4698666666666667,
+      "diff_ci": [
+        -1.502674835234162,
+        -1.4373625389610316
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.4609447603446375,
+      "ratio_ci": [
+        1.4465730249394113,
+        1.475645201849081
+      ],
+      "diff_tokens_per_word": 0.5854322123752176,
+      "diff_ci": [
+        0.568174652350391,
+        0.6016513331450225
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.5263598559906226,
+      "ratio_ci": [
+        1.5034391332969683,
+        1.549950438153461
+      ],
+      "diff_tokens_per_word": 0.6858181818181818,
+      "diff_ci": [
+        0.6619247132131834,
+        0.709912698255023
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.380616954092786,
+      "ratio_ci": [
+        1.3693886220047524,
+        1.3920081875842398
+      ],
+      "diff_tokens_per_word": 0.4701,
+      "diff_ci": [
+        0.457199535333302,
+        0.48306740255620334
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.3531746031746033,
+      "ratio_ci": [
+        1.3369158878504672,
+        1.3686163221409275
+      ],
+      "diff_tokens_per_word": 0.445,
+      "diff_ci": [
+        0.42658024136900874,
+        0.46246681868746364
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 1.3862298722931705,
+      "ratio_ci": [
+        1.3712512900716547,
+        1.4038124484682888
+      ],
+      "diff_tokens_per_word": 0.46453853345799384,
+      "diff_ci": [
+        0.44787486522130904,
+        0.4837023982478078
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.2644166062739415,
+      "ratio_ci": [
+        1.2394329798732933,
+        1.2899668007711071
+      ],
+      "diff_tokens_per_word": 0.61296,
+      "diff_ci": [
+        0.5838532188304404,
+        0.6418545966781902
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.4457054479708977,
+      "ratio_ci": [
+        1.415013971014453,
+        1.4757658358597865
+      ],
+      "diff_tokens_per_word": 0.7440363636363636,
+      "diff_ci": [
+        0.702841667129952,
+        0.7827330187034434
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.4396251863420175,
+      "ratio_ci": [
+        1.418550129299489,
+        1.4601310995758827
+      ],
+      "diff_tokens_per_word": 0.6193,
+      "diff_ci": [
+        0.5956419216669138,
+        0.6419443741760281
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.6096825396825396,
+      "ratio_ci": [
+        1.5891205488966411,
+        1.630255444599905
+      ],
+      "diff_tokens_per_word": 0.7682,
+      "diff_ci": [
+        0.7441244489247687,
+        0.7927689111427754
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 1.0030838069899626,
+      "ratio_ci": [
+        1.0002803368394715,
+        1.006007091445808
+      ],
+      "diff_tokens_per_word": 0.0204,
+      "diff_ci": [
+        0.0018569912821771706,
+        0.039821170581963015
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.2644338613383028,
+      "ratio_ci": [
+        1.2393144669235356,
+        1.2891399126989773
+      ],
+      "diff_tokens_per_word": 0.613,
+      "diff_ci": [
+        0.5823970756083128,
+        0.6408541535605391
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.445749014311543,
+      "ratio_ci": [
+        1.4140564013058055,
+        1.4762104658208213
+      ],
+      "diff_tokens_per_word": 0.7441090909090909,
+      "diff_ci": [
+        0.702619450204296,
+        0.7832524354471649
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.4396251863420175,
+      "ratio_ci": [
+        1.4185613626852822,
+        1.4600717786624788
+      ],
+      "diff_tokens_per_word": 0.6193,
+      "diff_ci": [
+        0.5962243395003856,
+        0.642192832580163
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.6096825396825396,
+      "ratio_ci": [
+        1.590316973139395,
+        1.6305070146589355
+      ],
+      "diff_tokens_per_word": 0.7682,
+      "diff_ci": [
+        0.7446829888187512,
+        0.793061962798818
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 1.0030838069899626,
+      "ratio_ci": [
+        1.0003995155270908,
+        1.0058892828466288
+      ],
+      "diff_tokens_per_word": 0.0204,
+      "diff_ci": [
+        0.002618086082789581,
+        0.03912996248445537
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.7608486776820451,
+      "ratio_ci": [
+        1.7401027518770977,
+        1.781876421620273
+      ],
+      "diff_tokens_per_word": 0.9663312461239922,
+      "diff_ci": [
+        0.9428527460963109,
+        0.9898388033134016
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.867042505093355,
+      "ratio_ci": [
+        1.8343460161950162,
+        1.9046459931887958
+      ],
+      "diff_tokens_per_word": 1.129709090909091,
+      "diff_ci": [
+        1.0988623061564204,
+        1.1633719542387528
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.6325803578657598,
+      "ratio_ci": [
+        1.6181463306010746,
+        1.6470975574696332
+      ],
+      "diff_tokens_per_word": 0.7813,
+      "diff_ci": [
+        0.7631070369585936,
+        0.7981456705094668
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.6096825396825396,
+      "ratio_ci": [
+        1.5895743858426035,
+        1.6301467875381532
+      ],
+      "diff_tokens_per_word": 0.7682,
+      "diff_ci": [
+        0.7438693157720618,
+        0.7912835516011656
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 1.619988895058301,
+      "ratio_ci": [
+        1.5993985158358837,
+        1.640336141658603
+      ],
+      "diff_tokens_per_word": 0.7456925337251236,
+      "diff_ci": [
+        0.7238859181378811,
+        0.7680743576088405
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 0.5754132587914553,
+      "ratio_ci": [
+        0.5412250705406241,
+        0.6143765852910767
+      ],
+      "diff_tokens_per_word": -0.98426,
+      "diff_ci": [
+        -1.1237414299528312,
+        -0.8460673166284173
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 0.8479752543185135,
+      "ratio_ci": [
+        0.8282232207157145,
+        0.8677585292799426
+      ],
+      "diff_tokens_per_word": -0.25378181818181816,
+      "diff_ci": [
+        -0.290725032686882,
+        -0.21791464818848882
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.90154042734436,
+      "ratio_ci": [
+        0.8876299596876815,
+        0.9161960907487559
+      ],
+      "diff_tokens_per_word": -0.1387,
+      "diff_ci": [
+        -0.16018974083011736,
+        -0.1167032981360419
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.0252380952380953,
+      "ratio_ci": [
+        1.0133702477572657,
+        1.0390192225426071
+      ],
+      "diff_tokens_per_word": 0.0318,
+      "diff_ci": [
+        0.016991335503557702,
+        0.04919203286875401
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.173499415487564,
+      "ratio_ci": [
+        0.17116985962580475,
+        0.1758044050333996
+      ],
+      "diff_tokens_per_word": -5.467466666666667,
+      "diff_ci": [
+        -5.541154726674878,
+        -5.396086075602644
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 0.5754132587914553,
+      "ratio_ci": [
+        0.54116558343642,
+        0.6114874064827036
+      ],
+      "diff_tokens_per_word": -0.98426,
+      "diff_ci": [
+        -1.1237497058811279,
+        -0.854767692509627
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 0.8479752543185135,
+      "ratio_ci": [
+        0.8285328697499427,
+        0.8687080980341544
+      ],
+      "diff_tokens_per_word": -0.25378181818181816,
+      "diff_ci": [
+        -0.2901163703545928,
+        -0.21682160688014387
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.90154042734436,
+      "ratio_ci": [
+        0.8877075279465712,
+        0.9164038910559497
+      ],
+      "diff_tokens_per_word": -0.1387,
+      "diff_ci": [
+        -0.15999005253794363,
+        -0.11641383551943224
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.0252380952380953,
+      "ratio_ci": [
+        1.0134728653011298,
+        1.0383707814859784
+      ],
+      "diff_tokens_per_word": 0.0318,
+      "diff_ci": [
+        0.01703952511902554,
+        0.048102983435022874
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.173499415487564,
+      "ratio_ci": [
+        0.17105759155234318,
+        0.17589140096662437
+      ],
+      "diff_tokens_per_word": -5.467466666666667,
+      "diff_ci": [
+        -5.540861363786202,
+        -5.3935282614668845
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.0687699844062564,
+      "ratio_ci": [
+        1.0583778177838052,
+        1.0793291907071303
+      ],
+      "diff_tokens_per_word": 0.08734270910436713,
+      "diff_ci": [
+        0.07405596131548087,
+        0.10076750590563123
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.1077000362814322,
+      "ratio_ci": [
+        1.0914602462694218,
+        1.1249054679771369
+      ],
+      "diff_tokens_per_word": 0.14032727272727272,
+      "diff_ci": [
+        0.11992683192722467,
+        0.161635183153287
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.039268075459477,
+      "ratio_ci": [
+        1.0310562763475766,
+        1.047909456209013
+      ],
+      "diff_tokens_per_word": 0.0485,
+      "diff_ci": [
+        0.038432013716137095,
+        0.058936248793888805
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.0252380952380953,
+      "ratio_ci": [
+        1.0133311643822336,
+        1.038089808635435
+      ],
+      "diff_tokens_per_word": 0.0318,
+      "diff_ci": [
+        0.01690744817464685,
+        0.04795263946579736
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.9847862298722931,
+      "ratio_ci": [
+        0.9781811154339722,
+        0.9914467812588553
+      ],
+      "diff_tokens_per_word": -0.018298383865366634,
+      "diff_ci": [
+        -0.026390063064265414,
+        -0.010243045285342138
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 0.550074196776754,
+      "ratio_ci": [
+        0.5152496899083384,
+        0.5862769814932649
+      ],
+      "diff_tokens_per_word": -1.043,
+      "diff_ci": [
+        -1.1883919055227294,
+        -0.9074922378492492
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 0.8220314984642865,
+      "ratio_ci": [
+        0.8074538644953401,
+        0.835841150456688
+      ],
+      "diff_tokens_per_word": -0.29709090909090907,
+      "diff_ci": [
+        -0.3251581260607742,
+        -0.27254668098355217
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.8686022574004402,
+      "ratio_ci": [
+        0.855490287963221,
+        0.8814730394144655
+      ],
+      "diff_tokens_per_word": -0.1851,
+      "diff_ci": [
+        -0.20632963678493912,
+        -0.16454795792996127
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 0.9955555555555555,
+      "ratio_ci": [
+        0.9880949543783195,
+        1.0030404453234385
+      ],
+      "diff_tokens_per_word": -0.0056,
+      "diff_ci": [
+        -0.015072954044146202,
+        0.0038161427339953305
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.15142903212802838,
+      "ratio_ci": [
+        0.1494809182694819,
+        0.15332602690522193
+      ],
+      "diff_tokens_per_word": -5.613466666666667,
+      "diff_ci": [
+        -5.6955113503104515,
+        -5.535955708937618
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 0.5501000793732961,
+      "ratio_ci": [
+        0.5128212730185595,
+        0.5859080758934683
+      ],
+      "diff_tokens_per_word": -1.04294,
+      "diff_ci": [
+        -1.195363727986427,
+        -0.9102612174814921
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 0.8220968479752543,
+      "ratio_ci": [
+        0.8084082257105544,
+        0.8362490197955829
+      ],
+      "diff_tokens_per_word": -0.2969818181818182,
+      "diff_ci": [
+        -0.3230867262822832,
+        -0.2707282816655485
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.8686022574004402,
+      "ratio_ci": [
+        0.8566990966753131,
+        0.8808423329907756
+      ],
+      "diff_tokens_per_word": -0.1851,
+      "diff_ci": [
+        -0.20462904276397906,
+        -0.16574922612298648
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 0.9955555555555555,
+      "ratio_ci": [
+        0.9879614735472855,
+        1.003213659318326
+      ],
+      "diff_tokens_per_word": -0.0056,
+      "diff_ci": [
+        -0.015164598499628822,
+        0.004034352603676228
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.15142903212802838,
+      "ratio_ci": [
+        0.14953486587858883,
+        0.15340320735447338
+      ],
+      "diff_tokens_per_word": -5.613466666666667,
+      "diff_ci": [
+        -5.69322472159736,
+        -5.534941785076308
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.0412840424023815,
+      "ratio_ci": [
+        1.0342929755942358,
+        1.04830397974103
+      ],
+      "diff_tokens_per_word": 0.05243363274451358,
+      "diff_ci": [
+        0.04332401691629026,
+        0.06167979363722127
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.0668694705701767,
+      "ratio_ci": [
+        1.0560812268549784,
+        1.0773439366465911
+      ],
+      "diff_tokens_per_word": 0.08712727272727273,
+      "diff_ci": [
+        0.0723954691315125,
+        0.10187677327997628
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.9970042911505141,
+      "ratio_ci": [
+        0.9920520598476186,
+        1.0016517543566166
+      ],
+      "diff_tokens_per_word": -0.0037,
+      "diff_ci": [
+        -0.009836453098408363,
+        0.002030088065940424
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 0.9955555555555555,
+      "ratio_ci": [
+        0.9881359131012449,
+        1.0033408104181423
+      ],
+      "diff_tokens_per_word": -0.0056,
+      "diff_ci": [
+        -0.01495990212676226,
+        0.004187479452725008
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 1.0322043309272626,
+      "ratio_ci": [
+        1.0245632517449852,
+        1.0395532320991097
+      ],
+      "diff_tokens_per_word": 0.03873380526245492,
+      "diff_ci": [
+        0.029698964141580828,
+        0.04729039911328263
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 0.5873192532008145,
+      "ratio_ci": [
+        0.5469634505147459,
+        0.629382299915388
+      ],
+      "diff_tokens_per_word": -0.95666,
+      "diff_ci": [
+        -1.1123334941127678,
+        -0.8125083463457637
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 0.9122138235998867,
+      "ratio_ci": [
+        0.8971628438059303,
+        0.9260561431860952
+      ],
+      "diff_tokens_per_word": -0.14654545454545453,
+      "diff_ci": [
+        -0.17319310805034577,
+        -0.12188907676418104
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.887342940299567,
+      "ratio_ci": [
+        0.875527624820202,
+        0.9001648423844563
+      ],
+      "diff_tokens_per_word": -0.1587,
+      "diff_ci": [
+        -0.1772564858827647,
+        -0.1388710047055112
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 0.983015873015873,
+      "ratio_ci": [
+        0.9726688187088824,
+        0.9939969274862342
+      ],
+      "diff_tokens_per_word": -0.0214,
+      "diff_ci": [
+        -0.0345630871876928,
+        -0.007483867880266195
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "raw",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.1512677873180957,
+      "ratio_ci": [
+        0.14950189153560767,
+        0.1530968587326615
+      ],
+      "diff_tokens_per_word": -5.614533333333333,
+      "diff_ci": [
+        -5.693262028334502,
+        -5.535455151464614
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 0.5873623908617179,
+      "ratio_ci": [
+        0.5482389006824431,
+        0.6261888502714654
+      ],
+      "diff_tokens_per_word": -0.95656,
+      "diff_ci": [
+        -1.1058980888100127,
+        -0.8230463814312365
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 0.9123227394514998,
+      "ratio_ci": [
+        0.8963087073387933,
+        0.9271902521261338
+      ],
+      "diff_tokens_per_word": -0.14636363636363636,
+      "diff_ci": [
+        -0.17490134955843611,
+        -0.11997736802575852
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.887342940299567,
+      "ratio_ci": [
+        0.8747713457462929,
+        0.9002968299011274
+      ],
+      "diff_tokens_per_word": -0.1587,
+      "diff_ci": [
+        -0.17900036648567963,
+        -0.1384388105132625
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 0.983015873015873,
+      "ratio_ci": [
+        0.9723218266594749,
+        0.9939760249450272
+      ],
+      "diff_tokens_per_word": -0.0214,
+      "diff_ci": [
+        -0.03512725930545356,
+        -0.007540150607594684
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "nfkc",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.1512677873180957,
+      "ratio_ci": [
+        0.14935869369422008,
+        0.15313760527176626
+      ],
+      "diff_tokens_per_word": -5.614533333333333,
+      "diff_ci": [
+        -5.698415305168928,
+        -5.532838052790622
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.112747491612456,
+      "ratio_ci": [
+        1.102785556371897,
+        1.1225216856390268
+      ],
+      "diff_tokens_per_word": 0.14319723128013284,
+      "diff_ci": [
+        0.12998537911711064,
+        0.15600769500630227
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.177834835756747,
+      "ratio_ci": [
+        1.1665910149785748,
+        1.1889932011413815
+      ],
+      "diff_tokens_per_word": 0.23170909090909092,
+      "diff_ci": [
+        0.2163704943640581,
+        0.24724176081790447
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.0131973119585458,
+      "ratio_ci": [
+        1.0048814631729472,
+        1.0208385893593521
+      ],
+      "diff_tokens_per_word": 0.0163,
+      "diff_ci": [
+        0.006102682988749607,
+        0.025635955435105183
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 0.983015873015873,
+      "ratio_ci": [
+        0.9720409552846421,
+        0.9941806447037129
+      ],
+      "diff_tokens_per_word": -0.0214,
+      "diff_ci": [
+        -0.03550981627487565,
+        -0.007376976256032669
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "reference": "aratoken",
+      "view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 1.0810660744031093,
+      "ratio_ci": [
+        1.0721321882942845,
+        1.0904914701205939
+      ],
+      "diff_tokens_per_word": 0.09750233738480032,
+      "diff_ci": [
+        0.08685278629370934,
+        0.10829509318888618
+      ]
+    }
+  ],
+  "view_paired": [
+    {
+      "tokenizer": "o200k",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 0.7821676139717664,
+      "ratio_ci": [
+        0.7511579992546055,
+        0.8138456515741467
+      ],
+      "diff_tokens_per_word": -0.5167543561325945,
+      "diff_ci": [
+        -0.611280919116124,
+        -0.4252660261098592
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.0065148977676353,
+      "ratio_ci": [
+        1.0036735559282994,
+        1.0091789380357579
+      ],
+      "diff_tokens_per_word": 0.012872727272727274,
+      "diff_ci": [
+        0.007344172820249298,
+        0.017942664536727704
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.9954465849387041,
+      "ratio_ci": [
+        0.992610876524521,
+        0.9980660009375036
+      ],
+      "diff_tokens_per_word": -0.0078,
+      "diff_ci": [
+        -0.012659868659809568,
+        -0.0032906895008835827
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.0,
+      "ratio_ci": [
+        1.0,
+        1.0
+      ],
+      "diff_tokens_per_word": 0.0,
+      "diff_ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "tokenizer": "o200k",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.32347758486654576,
+      "ratio_ci": [
+        0.3200919991713548,
+        0.3267909670424223
+      ],
+      "diff_tokens_per_word": -3.486977427541071,
+      "diff_ci": [
+        -3.548170893156004,
+        -3.430950337595732
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 0.7627869210404215,
+      "ratio_ci": [
+        0.7284730407509338,
+        0.7962168179289747
+      ],
+      "diff_tokens_per_word": -0.6954808250145038,
+      "diff_ci": [
+        -0.8281721795840068,
+        -0.5740614932212152
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.0079857762777242,
+      "ratio_ci": [
+        1.005065884893352,
+        1.0111132553937097
+      ],
+      "diff_tokens_per_word": 0.01927272727272727,
+      "diff_ci": [
+        0.012355528656910154,
+        0.02677689748060865
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.9942800788954635,
+      "ratio_ci": [
+        0.9906309509984647,
+        0.9976805090467745
+      ],
+      "diff_tokens_per_word": -0.0116,
+      "diff_ci": [
+        -0.019089842027319275,
+        -0.004702692430050734
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.0,
+      "ratio_ci": [
+        1.0,
+        1.0
+      ],
+      "diff_tokens_per_word": 0.0,
+      "diff_ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "tokenizer": "qwen3",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.2931259670062491,
+      "ratio_ci": [
+        0.29038332147965684,
+        0.2960919030641647
+      ],
+      "diff_tokens_per_word": -4.6986777080272475,
+      "diff_ci": [
+        -4.763803364133309,
+        -4.6369927783558635
+      ]
+    },
+    {
+      "tokenizer": "aratoken",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 0.5477361355557856,
+      "ratio_ci": [
+        0.5175396332727599,
+        0.5799160217687944
+      ],
+      "diff_tokens_per_word": -1.0486926600916238,
+      "diff_ci": [
+        -1.1813574866660568,
+        -0.9209946740003665
+      ]
+    },
+    {
+      "tokenizer": "aratoken",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 0.7805127758293942,
+      "ratio_ci": [
+        0.7670563839445818,
+        0.7932397916061855
+      ],
+      "diff_tokens_per_word": -0.3664,
+      "diff_ci": [
+        -0.3947416808222245,
+        -0.3399471134182229
+      ]
+    },
+    {
+      "tokenizer": "aratoken",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 0.8767658124511961,
+      "ratio_ci": [
+        0.8647014907251633,
+        0.8890165465596734
+      ],
+      "diff_tokens_per_word": -0.1736,
+      "diff_ci": [
+        -0.19337979460278842,
+        -0.15425291642893432
+      ]
+    },
+    {
+      "tokenizer": "aratoken",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.0,
+      "ratio_ci": [
+        1.0,
+        1.0
+      ],
+      "diff_tokens_per_word": 0.0,
+      "diff_ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "tokenizer": "aratoken",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 0.18150118918047325,
+      "ratio_ci": [
+        0.17925666563195203,
+        0.18388589414139045
+      ],
+      "diff_tokens_per_word": -5.423934820355282,
+      "diff_ci": [
+        -5.496162150052238,
+        -5.351371408030377
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.0173626208861235,
+      "ratio_ci": [
+        1.0153431504589179,
+        1.0194804744333157
+      ],
+      "diff_tokens_per_word": 0.023166023166023165,
+      "diff_ci": [
+        0.020560295731060885,
+        0.02580765246685074
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.0195745992601726,
+      "ratio_ci": [
+        1.01656088794926,
+        1.022772030594571
+      ],
+      "diff_tokens_per_word": 0.02770909090909091,
+      "diff_ci": [
+        0.023592657017986504,
+        0.031884181003465024
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.0107086614173229,
+      "ratio_ci": [
+        1.0084829967915578,
+        1.0130329986416777
+      ],
+      "diff_tokens_per_word": 0.0136,
+      "diff_ci": [
+        0.010775368979364278,
+        0.016557143175560025
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.0,
+      "ratio_ci": [
+        1.0,
+        1.0
+      ],
+      "diff_tokens_per_word": 0.0,
+      "diff_ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 1.0302044609665428,
+      "ratio_ci": [
+        1.0259046565637862,
+        1.0347948175597037
+      ],
+      "diff_tokens_per_word": 0.03472685989047682,
+      "diff_ci": [
+        0.029789262545300472,
+        0.04004832016146285
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.0368581197653628,
+      "ratio_ci": [
+        1.0318679541714395,
+        1.0423338660983776
+      ],
+      "diff_tokens_per_word": 0.04701222317802629,
+      "diff_ci": [
+        0.04098264962353753,
+        0.05364488420693844
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.012984603969579,
+      "ratio_ci": [
+        1.0105750194531675,
+        1.015568560362915
+      ],
+      "diff_tokens_per_word": 0.01781818181818182,
+      "diff_ci": [
+        0.014525887273225038,
+        0.021293081411525503
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.0063746322327558,
+      "ratio_ci": [
+        1.0045798408216087,
+        1.008412463307218
+      ],
+      "diff_tokens_per_word": 0.0078,
+      "diff_ci": [
+        0.005620698288783846,
+        0.010265950839058038
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.0,
+      "ratio_ci": [
+        1.0,
+        1.0
+      ],
+      "diff_tokens_per_word": 0.0,
+      "diff_ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "tokenizer": "arabert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 1.2371888726207907,
+      "ratio_ci": [
+        1.2220452677473084,
+        1.2535402258610784
+      ],
+      "diff_tokens_per_word": 0.23801255509549887,
+      "diff_ci": [
+        0.22322567014478886,
+        0.25402139135108287
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "all",
+      "stratum": "__all__",
+      "n_pairs": 1499,
+      "ratio": 1.0377524788835844,
+      "ratio_ci": [
+        1.031917779170832,
+        1.0446303549618468
+      ],
+      "diff_tokens_per_word": 0.05141336747554364,
+      "diff_ci": [
+        0.04388031205112731,
+        0.0600658111136894
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "msa",
+      "n_pairs": 170,
+      "ratio": 1.0077847028201639,
+      "ratio_ci": [
+        1.0052293282129063,
+        1.0104935221307503
+      ],
+      "diff_tokens_per_word": 0.011854545454545454,
+      "diff_ci": [
+        0.00797774724547887,
+        0.01590418547076431
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "egyptian",
+      "n_pairs": 806,
+      "ratio": 1.00112,
+      "ratio_ci": [
+        0.9992028187058517,
+        1.0030718367508475
+      ],
+      "diff_tokens_per_word": 0.0014,
+      "diff_ci": [
+        -0.0009975116380104034,
+        0.003826701716591958
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "gulf",
+      "n_pairs": 394,
+      "ratio": 1.0,
+      "ratio_ci": [
+        1.0,
+        1.0
+      ],
+      "diff_tokens_per_word": 0.0,
+      "diff_ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "tokenizer": "camelbert",
+      "from_view": "raw",
+      "to_view": "aratoken_norm",
+      "scope": "stratum",
+      "stratum": "diacritized",
+      "n_pairs": 129,
+      "ratio": 1.297135243171219,
+      "ratio_ci": [
+        1.2787116257047217,
+        1.3168265095771425
+      ],
+      "diff_tokens_per_word": 0.2978496059837051,
+      "diff_ci": [
+        0.27954503322419105,
+        0.31752674681174115
+      ]
+    }
+  ],
+  "cost": [
+    {
+      "tokenizer": "o200k",
+      "tokenizer_class": "english-centric-proxy",
+      "view": "raw",
+      "reference": "aratoken",
+      "fertility": 2.37164,
+      "tokens_for_target_words": 118582.00000000001,
+      "token_inflation_vs_reference": 1.0230700210511785,
+      "illustrative_usd_per_1m_words": 1.18582,
+      "illustrative_price_usd_per_1m": 0.5,
+      "input_usd_per_1m": null,
+      "cost_usd_per_1m_words": null,
+      "cost_ratio_vs_reference": null,
+      "price_as_of": null,
+      "price_source": "proxy tokenizer; no standalone API price"
+    },
+    {
+      "tokenizer": "qwen3",
+      "tokenizer_class": "massive-multilingual",
+      "view": "raw",
+      "reference": "aratoken",
+      "fertility": 2.93112,
+      "tokens_for_target_words": 146556.0,
+      "token_inflation_vs_reference": 1.2644166062739413,
+      "illustrative_usd_per_1m_words": 1.46556,
+      "illustrative_price_usd_per_1m": 0.5,
+      "input_usd_per_1m": null,
+      "cost_usd_per_1m_words": null,
+      "cost_ratio_vs_reference": null,
+      "price_as_of": null,
+      "price_source": "set the host you actually use (Alibaba / Together / self-hosted)"
+    },
+    {
+      "tokenizer": "aratoken",
+      "tokenizer_class": "arabic-specialized",
+      "view": "raw",
+      "reference": "aratoken",
+      "fertility": 2.31816,
+      "tokens_for_target_words": 115908.00000000001,
+      "token_inflation_vs_reference": 1.0,
+      "illustrative_usd_per_1m_words": 1.15908,
+      "illustrative_price_usd_per_1m": 0.5,
+      "input_usd_per_1m": null,
+      "cost_usd_per_1m_words": null,
+      "cost_ratio_vs_reference": null,
+      "price_as_of": null,
+      "price_source": "local tokenizer; use GPU-hour amortization, not a per-token price"
+    },
+    {
+      "tokenizer": "aratoken_lep",
+      "tokenizer_class": "arabic-specialized-extended",
+      "view": "raw",
+      "reference": "aratoken",
+      "fertility": 1.3339,
+      "tokens_for_target_words": 66695.0,
+      "token_inflation_vs_reference": 0.5754132587914553,
+      "illustrative_usd_per_1m_words": 0.66695,
+      "illustrative_price_usd_per_1m": 0.5,
+      "input_usd_per_1m": null,
+      "cost_usd_per_1m_words": null,
+      "cost_ratio_vs_reference": null,
+      "price_as_of": null,
+      "price_source": "local model; use GPU-hour amortization"
+    },
+    {
+      "tokenizer": "arabert",
+      "tokenizer_class": "arabic-bert-baseline",
+      "view": "raw",
+      "reference": "aratoken",
+      "fertility": 1.27516,
+      "tokens_for_target_words": 63758.0,
+      "token_inflation_vs_reference": 0.550074196776754,
+      "illustrative_usd_per_1m_words": 0.63758,
+      "illustrative_price_usd_per_1m": 0.5,
+      "input_usd_per_1m": null,
+      "cost_usd_per_1m_words": null,
+      "cost_ratio_vs_reference": null,
+      "price_as_of": null,
+      "price_source": "local encoder; no per-token API price"
+    },
+    {
+      "tokenizer": "camelbert",
+      "tokenizer_class": "arabic-dialect-bert-baseline",
+      "view": "raw",
+      "reference": "aratoken",
+      "fertility": 1.3615,
+      "tokens_for_target_words": 68075.0,
+      "token_inflation_vs_reference": 0.5873192532008144,
+      "illustrative_usd_per_1m_words": 0.68075,
+      "illustrative_price_usd_per_1m": 0.5,
+      "input_usd_per_1m": null,
+      "cost_usd_per_1m_words": null,
+      "cost_ratio_vs_reference": null,
+      "price_as_of": null,
+      "price_source": "local encoder; no per-token API price"
+    }
+  ],
+  "errors": []
+}
