@@ -200,7 +200,7 @@ The smoke run tests the pipeline on 26 documents / 270 words. **Its numbers are 
 
 ## 8) Interpretation rules — read before any number
 
-1. **Fertility is not quality.** A tokenizer that produces fewer tokens does not necessarily help the model understand better; the literature is mixed (Alyafeai 2021; Alrefaie 2024; Alakeel 2026).
+1. **Fertility is not quality.** A tokenizer that produces fewer tokens does not necessarily help the model understand better; the literature is mixed (Alrefaie 2024; Alakeel 2026).
 2. **`raw` ≠ `aratoken_norm`.** In `raw` there is no external normalization; each tokenizer uses its own internal normalizer. In `aratoken_norm` we apply the AraToken pipeline to the text **for every** tokenizer before tokenization. That is why AraToken's raw number is above 1.199, while ~1.199 appears under `aratoken_norm`. But `aratoken_norm` removes diacritics, so `raw` is the view for measuring diacritized input cost.
 3. **Cost = fertility × token price.** If the two prices differ, the cost ratio ≠ the fertility ratio. AraToken has no frontier API; any cost comparison with it is **counterfactual** (GPU-hour amortization, not an API price).
 4. **TTFT is not an isolated tokenizer effect.** The slope against token count is the closest thing to a size effect; differences between providers are not necessarily caused by tokenization.
